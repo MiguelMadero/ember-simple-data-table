@@ -1,0 +1,29 @@
+{{!-- This doesn't render anything, but adds the columns to the table --}}
+{{yield}}
+<section>
+    <div class="data-grid-table-container" {{bind-attr style="heightStyle"}}>
+        <table>
+            <thead>
+                <tr class="header">
+                    {{#each shownColumns as |column|}}
+                        <th {{bind-attr style="column.style" class="column.isSortable"}}
+                            {{action "sortByColumn" column}}>
+                            {{column.title}}
+                            <div>{{column.title}}<span {{bind-attr class="column.sortDirectionClass"}}></span></div>
+                        </th>
+                    {{/each}}
+                </tr>
+            </thead>
+            <tbody>
+                {{#each sortedContent as |rowDataContext|}}
+                    {{#with _view.contentIndex as contentIndex}}
+                        {{data-table-row-wrapper content=rowDataContext style=rowHeightStyle selectedIndex=selectedIndex index=contentIndex
+                            shownColumns=shownColumns hasSelectAction=canSelect selectRow="selectRow"
+                            rowClassNames=rowDefinition.rowClassNames
+                            rowClassNameBindings=rowDefinition.rowClassNameBindings}}
+                    {{/with}}
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</section>

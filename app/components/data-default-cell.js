@@ -1,0 +1,1 @@
+export { default } from 'ember-simple-data-table/components/data-default-cell';

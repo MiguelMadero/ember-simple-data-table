@@ -1,0 +1,19 @@
+{{#each shownColumns as |columnComponentInstance|}}
+    {{#if canSelect}}
+        <td {{action "selectRow" columnComponentInstance content}}>
+            {{#if columnComponentInstance.template}}
+                {{yield-component columnComponentInstance content}}
+            {{else}}
+                {{data-default-cell fieldBinding="columnComponentInstance.field" rowBinding="content"}}
+            {{/if}}
+        </td>
+    {{else}}
+        <td>
+            {{#if columnComponentInstance.template}}
+                {{yield-component columnComponentInstance content}}
+            {{else}}
+                {{data-default-cell fieldBinding="columnComponentInstance.field" rowBinding="content"}}
+            {{/if}}
+        </td>
+    {{/if}}
+{{/each}}

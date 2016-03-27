@@ -1,3 +1,12 @@
-<h2 id="title">Welcome to Ember</h2>
-
-{{outlet}}
+{{#data-table contentBinding="model" selectedItemBinding="selectedPerson" height="300px" select="selectPerson"
+    sortPropertyBinding="sortProperty" sortAscendingBinding="sortAscending" classNames="non-zebra-striped" rowHeight="50px"}}
+    {{data-table-row rowClassNames="defined" rowClassNameBindings="content.isDisabled:is-disabled"}}
+    {{#data-table-column field="name" title="Name" width="300px" as |person|}}
+        <a href="#" {{action "selectPerson" person}}>{{person.name}}</a>
+    {{/data-table-column}}
+    {{#data-table-column field="email" title="Email"  width="180px" as |person|}}
+        <a href={{person.email}}>{{person.email}}</a>
+    {{/data-table-column}}
+    {{data-table-column field="phone" title="Company" width="300px"}}
+    {{data-table-column field="company" title="Phone" width="300px"}}
+{{/data-table}}

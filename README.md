@@ -1,6 +1,8 @@
 # Ember-simple-data-table
 
-This README outlines the details of collaborating on this Ember addon.
+This demo addon shows how to use nested and related components. We have a table that has rows and columns. The row component allows us to specify atrtibutes that we want on each row and the column component acts as a the definition for each cell. 
+
+
 
 ## Installation
 

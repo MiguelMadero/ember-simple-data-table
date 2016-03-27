@@ -1,0 +1,155 @@
+.data-grid-table {
+
+  section {
+    position: relative;
+    border: 1px solid #d6d6d6;
+    padding-top: 23px;
+    background: #d6d6d6;
+    overflow: hidden;
+  }
+  .data-grid-table-container {
+    overflow-y: auto;
+  }
+  table {
+    border-spacing: 0;
+    width:100%;
+  }
+  tbody {
+    background: #fff;
+  }
+  &.non-zebra-striped {
+    tbody tr:nth-child(even) {
+      background: #fff;
+    }
+    tbody tr.is-hoverable:hover {
+      background: #d5efff;
+    }
+  }
+  &.is-hoverable {
+    tbody tr:hover  {
+      background: #ededed;
+      border-top: 1px solid #d6d6d6;
+      border-bottom:0;
+      cursor: pointer;
+    }
+    tbody tr:hover + tr {
+      border-top-color: #d6d6d6;
+    }
+  }
+  tbody tr:nth-child(even) {
+    background: #ededed;
+  }
+  tr {
+    border-top:1px solid #d6d6d6;
+  }
+  td, th {
+    padding: 5px 20px;
+    font-weight:400;
+    vertical-align:top;
+  }
+  td {
+    padding: 10px 20px;
+    font-size:13px;
+    line-height:130%;
+  }
+  th {
+    height: 0;
+    line-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    color: transparent;
+    border: none;
+    white-space: nowrap;
+    text-transform: uppercase;
+    vertical-align:middle;
+    font-size:11px;
+  }
+  th div{
+    position: absolute;
+    background: transparent;
+    color: #000;
+    padding: 5px 20px;
+    top: 0;
+    margin-left: -20px;
+    line-height: normal;
+  }
+  th.is-sortable {
+    cursor: pointer;
+  }
+  th:first-child div{
+    border: none;
+  }
+  tr.is-selected {
+    background: #ededed !important; //had to do this unfortunately because of CSS rendering order
+  }
+}
+
+/* Data Grid icons */
+.data-grid-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  line-height: 0;
+  text-align: center;
+  opacity: 0.8;
+  font-family: ehr-icons;
+  font-size: 11px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+}
+
+.data-grid-icon:before {
+  content: "\f106";
+}
+
+.data-grid-i-arrow-n {
+  transform: rotate(270deg) translateX(2px) translateY(4px) scaleY(0.75);
+  -ms-transform: rotate(270deg) translateX(2px) translateY(4px) scaleY(0.75);
+  -webkit-transform: rotate(270deg) translateX(0px) translateY(8px) scaleY(0.75);
+}
+
+.data-grid-i-arrow-s {
+  transform: rotate(90deg) translateX(2px) translateY(4px) scaleY(0.75);
+  -ms-transform: rotate(90deg) translateX(2px) translateY(4px) scaleY(0.75);
+  -webkit-transform: rotate(90deg) translateX(-1px) translateY(4px) scaleY(0.75);
+}
+
+:root * > .data-grid-icon {
+  vertical-align: middle;
+}
+
+.data-grid-scroll, .data-grid-table-container {
+  &::-webkit-scrollbar {
+      height: 12px;
+      overflow: visible;
+      width: 12px;
+      background-color:white;
+  }
+  &::-webkit-scrollbar-track {
+      background-clip: padding-box;
+      border: solid transparent;
+      border-width: 0 0 0 1px;
+      border-color: #e1e1e1;
+      &:horizontal {
+          border-width: 1px 0 0 0;
+      }
+  }
+  &::-webkit-scrollbar-thumb {
+      background-color: rgba(0,0,0,0.2);
+      background-clip: padding-box;
+      border: solid transparent;
+      border-width: 0 0 0 1px;
+
+      &:horizontal {
+          border-width: 1px 0 0 0;
+      }
+      &:active,
+      &:hover {
+          background-color: rgba(0,0,0,0.4);
+      }
+  }
+  &::-webkit-scrollbar-corner {
+      background: white;
+  }
+}
